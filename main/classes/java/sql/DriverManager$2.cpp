@@ -69,6 +69,7 @@ void DriverManager$2::init$() {
 }
 
 $Object* DriverManager$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Driver);
 	$var($ServiceLoader, loadedDrivers, $ServiceLoader::load($Driver::class$));

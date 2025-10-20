@@ -138,6 +138,7 @@ int64_t Timestamp::getTime() {
 
 Timestamp* Timestamp::valueOf($String* s$renamed) {
 	$init(Timestamp);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, s$renamed);
 	int32_t YEAR_LENGTH = 4;
 	int32_t MONTH_LENGTH = 2;
@@ -347,6 +348,7 @@ $LocalDateTime* Timestamp::toLocalDateTime() {
 
 Timestamp* Timestamp::from($Instant* instant) {
 	$init(Timestamp);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(Timestamp, stamp, $new(Timestamp, $nc(instant)->getEpochSecond() * Timestamp::MILLIS_PER_SECOND));
 		stamp->nanos = $nc(instant)->getNano();

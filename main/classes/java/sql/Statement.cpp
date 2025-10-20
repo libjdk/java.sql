@@ -196,6 +196,7 @@ $String* Statement::enquoteLiteral($String* val) {
 }
 
 $String* Statement::enquoteIdentifier($String* identifier$renamed, bool alwaysQuote) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, identifier, identifier$renamed);
 	int32_t len = $nc(identifier)->length();
 	if (len < 1 || len > 128) {
@@ -215,6 +216,7 @@ $String* Statement::enquoteIdentifier($String* identifier$renamed, bool alwaysQu
 }
 
 bool Statement::isSimpleIdentifier($String* identifier) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(identifier)->length();
 	return len >= 1 && len <= 128 && $nc($($nc($($Pattern::compile("[\\p{Alpha}][\\p{Alnum}_]*"_s)))->matcher(identifier)))->matches();
 }

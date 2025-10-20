@@ -112,6 +112,7 @@ void SQLException::finalize() {
 $AtomicReferenceFieldUpdater* SQLException::nextUpdater = nullptr;
 
 void SQLException::init$($String* reason, $String* SQLState, int32_t vendorCode) {
+	$useLocalCurrentObjectStackCache();
 	$Exception::init$(reason);
 	$set(this, SQLState, SQLState);
 	this->vendorCode = vendorCode;
@@ -124,6 +125,7 @@ void SQLException::init$($String* reason, $String* SQLState, int32_t vendorCode)
 }
 
 void SQLException::init$($String* reason, $String* SQLState) {
+	$useLocalCurrentObjectStackCache();
 	$Exception::init$(reason);
 	$set(this, SQLState, SQLState);
 	this->vendorCode = 0;
@@ -176,6 +178,7 @@ void SQLException::init$($String* reason, $Throwable* cause) {
 }
 
 void SQLException::init$($String* reason, $String* sqlState, $Throwable* cause) {
+	$useLocalCurrentObjectStackCache();
 	$Exception::init$(reason, cause);
 	$set(this, SQLState, sqlState);
 	this->vendorCode = 0;
@@ -188,6 +191,7 @@ void SQLException::init$($String* reason, $String* sqlState, $Throwable* cause) 
 }
 
 void SQLException::init$($String* reason, $String* sqlState, int32_t vendorCode, $Throwable* cause) {
+	$useLocalCurrentObjectStackCache();
 	$Exception::init$(reason, cause);
 	$set(this, SQLState, sqlState);
 	this->vendorCode = vendorCode;
@@ -212,6 +216,7 @@ SQLException* SQLException::getNextException() {
 }
 
 void SQLException::setNextException(SQLException* ex) {
+	$useLocalCurrentObjectStackCache();
 	$var(SQLException, current, this);
 	for (;;) {
 		$var(SQLException, next, current->next);

@@ -150,6 +150,7 @@ $ints* BatchUpdateException::copyUpdateCount($longs* uc) {
 }
 
 void BatchUpdateException::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
 	$var($ints, tmp, $cast($ints, $nc(fields)->get("updateCounts"_s, ($Object*)nullptr)));
 	$var($longs, tmp2, $cast($longs, fields->get("longUpdateCounts"_s, ($Object*)nullptr)));

@@ -269,6 +269,7 @@ $Connection* DriverManager::getConnection($String* url) {
 
 $Driver* DriverManager::getDriver($String* url) {
 	$init(DriverManager);
+	$useLocalCurrentObjectStackCache();
 	println($$str({"DriverManager.getDriver(\""_s, url, "\")"_s}));
 	ensureDriversInitialized();
 	$Class* callerClass = $Reflection::getCallerClass();
@@ -304,6 +305,7 @@ void DriverManager::registerDriver($Driver* driver) {
 
 void DriverManager::registerDriver($Driver* driver, $DriverAction* da) {
 	$init(DriverManager);
+	$useLocalCurrentObjectStackCache();
 	if (driver != nullptr) {
 		$nc(DriverManager::registeredDrivers)->addIfAbsent($$new($DriverInfo, driver, da));
 	} else {
@@ -314,6 +316,7 @@ void DriverManager::registerDriver($Driver* driver, $DriverAction* da) {
 
 void DriverManager::deregisterDriver($Driver* driver) {
 	$init(DriverManager);
+	$useLocalCurrentObjectStackCache();
 	if (driver == nullptr) {
 		return;
 	}
@@ -354,6 +357,7 @@ $Stream* DriverManager::drivers() {
 
 $List* DriverManager::getDrivers($Class* callerClass) {
 	$init(DriverManager);
+	$useLocalCurrentObjectStackCache();
 	$var($List, result, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(DriverManager::registeredDrivers)->iterator());
@@ -419,6 +423,7 @@ bool DriverManager::isDriverAllowed($Driver* driver, $Class* caller) {
 
 bool DriverManager::isDriverAllowed($Driver* driver, $ClassLoader* classLoader) {
 	$init(DriverManager);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool result = false;
 	if (driver != nullptr) {
@@ -436,6 +441,7 @@ bool DriverManager::isDriverAllowed($Driver* driver, $ClassLoader* classLoader) 
 
 void DriverManager::ensureDriversInitialized() {
 	$init(DriverManager);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (DriverManager::driversInitialized) {
 		return;
@@ -481,6 +487,7 @@ void DriverManager::ensureDriversInitialized() {
 
 $Connection* DriverManager::getConnection($String* url, $Properties* info, $Class* caller) {
 	$init(DriverManager);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, callerCL, caller != nullptr ? $nc(caller)->getClassLoader() : ($ClassLoader*)nullptr);
 	if (callerCL == nullptr || callerCL == $ClassLoader::getPlatformClassLoader()) {

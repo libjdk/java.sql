@@ -317,6 +317,7 @@ $Integer* JDBCType::getVendorTypeNumber() {
 
 JDBCType* JDBCType::valueOf(int32_t type) {
 	$init(JDBCType);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($JDBCTypeArray, arr$, $fcast($JDBCTypeArray, JDBCType::class$->getEnumConstants()));
 		int32_t len$ = $nc(arr$)->length;
@@ -334,6 +335,7 @@ JDBCType* JDBCType::valueOf(int32_t type) {
 }
 
 void clinit$JDBCType($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(JDBCType::BIT, $new(JDBCType, "BIT"_s, 0, $($Integer::valueOf($Types::BIT))));
 	$assignStatic(JDBCType::TINYINT, $new(JDBCType, "TINYINT"_s, 1, $($Integer::valueOf($Types::TINYINT))));
 	$assignStatic(JDBCType::SMALLINT, $new(JDBCType, "SMALLINT"_s, 2, $($Integer::valueOf($Types::SMALLINT))));

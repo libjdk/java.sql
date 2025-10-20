@@ -58,6 +58,7 @@ $Object* allocate$SQLWarning($Class* clazz) {
 }
 
 void SQLWarning::init$($String* reason, $String* SQLState, int32_t vendorCode) {
+	$useLocalCurrentObjectStackCache();
 	$SQLException::init$(reason, SQLState, vendorCode);
 	$DriverManager::println($$str({"SQLWarning: reason("_s, reason, ") SQLState("_s, SQLState, ") vendor code("_s, $$str(vendorCode), ")"_s}));
 }
@@ -93,6 +94,7 @@ void SQLWarning::init$($String* reason, $String* SQLState, $Throwable* cause) {
 }
 
 void SQLWarning::init$($String* reason, $String* SQLState, int32_t vendorCode, $Throwable* cause) {
+	$useLocalCurrentObjectStackCache();
 	$SQLException::init$(reason, SQLState, vendorCode, cause);
 	$DriverManager::println($$str({"SQLWarning: reason("_s, reason, ") SQLState("_s, SQLState, ") vendor code("_s, $$str(vendorCode), ")"_s}));
 }
