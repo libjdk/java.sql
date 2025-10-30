@@ -1,16 +1,6 @@
 #include <java/sql/JDBCType.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/Types.h>
 #include <jcpp.h>
 
@@ -163,83 +153,44 @@ void JDBCType::finalize() {
 	this->$Enum::finalize();
 }
 
-
 JDBCType* JDBCType::BIT = nullptr;
-
 JDBCType* JDBCType::TINYINT = nullptr;
-
 JDBCType* JDBCType::SMALLINT = nullptr;
-
 JDBCType* JDBCType::INTEGER = nullptr;
-
 JDBCType* JDBCType::BIGINT = nullptr;
-
 JDBCType* JDBCType::FLOAT = nullptr;
-
 JDBCType* JDBCType::REAL = nullptr;
-
 JDBCType* JDBCType::DOUBLE = nullptr;
-
 JDBCType* JDBCType::NUMERIC = nullptr;
-
 JDBCType* JDBCType::DECIMAL = nullptr;
-
 JDBCType* JDBCType::CHAR = nullptr;
-
 JDBCType* JDBCType::VARCHAR = nullptr;
-
 JDBCType* JDBCType::LONGVARCHAR = nullptr;
-
 JDBCType* JDBCType::DATE = nullptr;
-
 JDBCType* JDBCType::TIME = nullptr;
-
 JDBCType* JDBCType::TIMESTAMP = nullptr;
-
 JDBCType* JDBCType::BINARY = nullptr;
-
 JDBCType* JDBCType::VARBINARY = nullptr;
-
 JDBCType* JDBCType::LONGVARBINARY = nullptr;
-
 JDBCType* JDBCType::NULL = nullptr;
-
 JDBCType* JDBCType::OTHER = nullptr;
-
 JDBCType* JDBCType::JAVA_OBJECT = nullptr;
-
 JDBCType* JDBCType::DISTINCT = nullptr;
-
 JDBCType* JDBCType::STRUCT = nullptr;
-
 JDBCType* JDBCType::ARRAY = nullptr;
-
 JDBCType* JDBCType::BLOB = nullptr;
-
 JDBCType* JDBCType::CLOB = nullptr;
-
 JDBCType* JDBCType::REF = nullptr;
-
 JDBCType* JDBCType::DATALINK = nullptr;
-
 JDBCType* JDBCType::BOOLEAN = nullptr;
-
 JDBCType* JDBCType::ROWID = nullptr;
-
 JDBCType* JDBCType::NCHAR = nullptr;
-
 JDBCType* JDBCType::NVARCHAR = nullptr;
-
 JDBCType* JDBCType::LONGNVARCHAR = nullptr;
-
 JDBCType* JDBCType::NCLOB = nullptr;
-
 JDBCType* JDBCType::SQLXML = nullptr;
-
 JDBCType* JDBCType::REF_CURSOR = nullptr;
-
 JDBCType* JDBCType::TIME_WITH_TIMEZONE = nullptr;
-
 JDBCType* JDBCType::TIMESTAMP_WITH_TIMEZONE = nullptr;
 $JDBCTypeArray* JDBCType::$VALUES = nullptr;
 

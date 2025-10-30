@@ -46,8 +46,10 @@ public:
 	$longs* longUpdateCounts = nullptr;
 	static const int64_t serialVersionUID = (int64_t)0x52F473C0C18B0E5D;
 	BatchUpdateException(const BatchUpdateException& e);
-	BatchUpdateException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline BatchUpdateException* operator ->() {
+		return (BatchUpdateException*)throwing$;
+	}
 };
 
 	} // sql

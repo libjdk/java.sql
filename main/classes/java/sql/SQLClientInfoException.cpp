@@ -1,13 +1,5 @@
 #include <java/sql/SQLClientInfoException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLException.h>
 #include <java/util/Map.h>
 #include <jcpp.h>
@@ -110,16 +102,10 @@ $Map* SQLClientInfoException::getFailedProperties() {
 SQLClientInfoException::SQLClientInfoException() {
 }
 
-SQLClientInfoException::SQLClientInfoException(const SQLClientInfoException& e) {
+SQLClientInfoException::SQLClientInfoException(const SQLClientInfoException& e) : $SQLException(e) {
 }
 
-SQLClientInfoException SQLClientInfoException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SQLClientInfoException::throwWrapper$() {
-	$pendingException(this);
+void SQLClientInfoException::throw$() {
 	throw *this;
 }
 

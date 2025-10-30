@@ -1,13 +1,5 @@
 #include <java/sql/SQLTransientException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLException.h>
 #include <jcpp.h>
 
@@ -84,16 +76,10 @@ void SQLTransientException::init$($String* reason, $String* SQLState, int32_t ve
 SQLTransientException::SQLTransientException() {
 }
 
-SQLTransientException::SQLTransientException(const SQLTransientException& e) {
+SQLTransientException::SQLTransientException(const SQLTransientException& e) : $SQLException(e) {
 }
 
-SQLTransientException SQLTransientException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SQLTransientException::throwWrapper$() {
-	$pendingException(this);
+void SQLTransientException::throw$() {
 	throw *this;
 }
 

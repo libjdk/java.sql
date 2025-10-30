@@ -1,13 +1,5 @@
 #include <java/sql/SQLIntegrityConstraintViolationException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLNonTransientException.h>
 #include <jcpp.h>
 
@@ -84,16 +76,10 @@ void SQLIntegrityConstraintViolationException::init$($String* reason, $String* S
 SQLIntegrityConstraintViolationException::SQLIntegrityConstraintViolationException() {
 }
 
-SQLIntegrityConstraintViolationException::SQLIntegrityConstraintViolationException(const SQLIntegrityConstraintViolationException& e) {
+SQLIntegrityConstraintViolationException::SQLIntegrityConstraintViolationException(const SQLIntegrityConstraintViolationException& e) : $SQLNonTransientException(e) {
 }
 
-SQLIntegrityConstraintViolationException SQLIntegrityConstraintViolationException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SQLIntegrityConstraintViolationException::throwWrapper$() {
-	$pendingException(this);
+void SQLIntegrityConstraintViolationException::throw$() {
 	throw *this;
 }
 

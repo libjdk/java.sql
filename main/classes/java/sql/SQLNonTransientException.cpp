@@ -1,13 +1,5 @@
 #include <java/sql/SQLNonTransientException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLException.h>
 #include <jcpp.h>
 
@@ -84,16 +76,10 @@ void SQLNonTransientException::init$($String* reason, $String* SQLState, int32_t
 SQLNonTransientException::SQLNonTransientException() {
 }
 
-SQLNonTransientException::SQLNonTransientException(const SQLNonTransientException& e) {
+SQLNonTransientException::SQLNonTransientException(const SQLNonTransientException& e) : $SQLException(e) {
 }
 
-SQLNonTransientException SQLNonTransientException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SQLNonTransientException::throwWrapper$() {
-	$pendingException(this);
+void SQLNonTransientException::throw$() {
 	throw *this;
 }
 

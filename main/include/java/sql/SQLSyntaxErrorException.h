@@ -28,8 +28,10 @@ public:
 	void init$($String* reason, $String* SQLState, int32_t vendorCode, $Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xE66964028335290B;
 	SQLSyntaxErrorException(const SQLSyntaxErrorException& e);
-	SQLSyntaxErrorException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SQLSyntaxErrorException* operator ->() {
+		return (SQLSyntaxErrorException*)throwing$;
+	}
 };
 
 	} // sql

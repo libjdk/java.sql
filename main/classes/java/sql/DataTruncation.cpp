@@ -1,13 +1,5 @@
 #include <java/sql/DataTruncation.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLWarning.h>
 #include <jcpp.h>
 
@@ -94,16 +86,10 @@ int32_t DataTruncation::getTransferSize() {
 DataTruncation::DataTruncation() {
 }
 
-DataTruncation::DataTruncation(const DataTruncation& e) {
+DataTruncation::DataTruncation(const DataTruncation& e) : $SQLWarning(e) {
 }
 
-DataTruncation DataTruncation::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void DataTruncation::throwWrapper$() {
-	$pendingException(this);
+void DataTruncation::throw$() {
 	throw *this;
 }
 

@@ -1,14 +1,5 @@
 #include <java/sql/DriverManager$2.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/Driver.h>
 #include <java/sql/DriverManager.h>
 #include <java/util/Iterator.h>
@@ -78,8 +69,7 @@ $Object* DriverManager$2::run() {
 		while ($nc(driversIterator)->hasNext()) {
 			driversIterator->next();
 		}
-	} catch ($Throwable&) {
-		$catch();
+	} catch ($Throwable& t) {
 	}
 	return $of(nullptr);
 }

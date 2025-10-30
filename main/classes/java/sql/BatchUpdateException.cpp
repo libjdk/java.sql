@@ -5,15 +5,6 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLException.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
@@ -181,16 +172,10 @@ void BatchUpdateException::writeObject($ObjectOutputStream* s) {
 BatchUpdateException::BatchUpdateException() {
 }
 
-BatchUpdateException::BatchUpdateException(const BatchUpdateException& e) {
+BatchUpdateException::BatchUpdateException(const BatchUpdateException& e) : $SQLException(e) {
 }
 
-BatchUpdateException BatchUpdateException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void BatchUpdateException::throwWrapper$() {
-	$pendingException(this);
+void BatchUpdateException::throw$() {
 	throw *this;
 }
 

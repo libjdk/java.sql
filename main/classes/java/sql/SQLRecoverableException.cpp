@@ -1,13 +1,5 @@
 #include <java/sql/SQLRecoverableException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLException.h>
 #include <jcpp.h>
 
@@ -84,16 +76,10 @@ void SQLRecoverableException::init$($String* reason, $String* SQLState, int32_t 
 SQLRecoverableException::SQLRecoverableException() {
 }
 
-SQLRecoverableException::SQLRecoverableException(const SQLRecoverableException& e) {
+SQLRecoverableException::SQLRecoverableException(const SQLRecoverableException& e) : $SQLException(e) {
 }
 
-SQLRecoverableException SQLRecoverableException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SQLRecoverableException::throwWrapper$() {
-	$pendingException(this);
+void SQLRecoverableException::throw$() {
 	throw *this;
 }
 

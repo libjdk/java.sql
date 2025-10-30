@@ -1,11 +1,5 @@
 #include <java/sql/SQLData.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLInput.h>
 #include <java/sql/SQLOutput.h>
 #include <jcpp.h>

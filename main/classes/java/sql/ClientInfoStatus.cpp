@@ -1,14 +1,6 @@
 #include <java/sql/ClientInfoStatus.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef REASON_UNKNOWN
@@ -56,13 +48,9 @@ $Object* allocate$ClientInfoStatus($Class* clazz) {
 	return $of($alloc(ClientInfoStatus));
 }
 
-
 ClientInfoStatus* ClientInfoStatus::REASON_UNKNOWN = nullptr;
-
 ClientInfoStatus* ClientInfoStatus::REASON_UNKNOWN_PROPERTY = nullptr;
-
 ClientInfoStatus* ClientInfoStatus::REASON_VALUE_INVALID = nullptr;
-
 ClientInfoStatus* ClientInfoStatus::REASON_VALUE_TRUNCATED = nullptr;
 $ClientInfoStatusArray* ClientInfoStatus::$VALUES = nullptr;
 

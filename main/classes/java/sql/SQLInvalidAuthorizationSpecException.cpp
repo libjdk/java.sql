@@ -1,13 +1,5 @@
 #include <java/sql/SQLInvalidAuthorizationSpecException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLNonTransientException.h>
 #include <jcpp.h>
 
@@ -84,16 +76,10 @@ void SQLInvalidAuthorizationSpecException::init$($String* reason, $String* SQLSt
 SQLInvalidAuthorizationSpecException::SQLInvalidAuthorizationSpecException() {
 }
 
-SQLInvalidAuthorizationSpecException::SQLInvalidAuthorizationSpecException(const SQLInvalidAuthorizationSpecException& e) {
+SQLInvalidAuthorizationSpecException::SQLInvalidAuthorizationSpecException(const SQLInvalidAuthorizationSpecException& e) : $SQLNonTransientException(e) {
 }
 
-SQLInvalidAuthorizationSpecException SQLInvalidAuthorizationSpecException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SQLInvalidAuthorizationSpecException::throwWrapper$() {
-	$pendingException(this);
+void SQLInvalidAuthorizationSpecException::throw$() {
 	throw *this;
 }
 

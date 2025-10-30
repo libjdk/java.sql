@@ -1,15 +1,7 @@
 #include <java/sql/SQLWarning.h>
 
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/DriverManager.h>
 #include <java/sql/SQLException.h>
 #include <jcpp.h>
@@ -102,8 +94,7 @@ void SQLWarning::init$($String* reason, $String* SQLState, int32_t vendorCode, $
 SQLWarning* SQLWarning::getNextWarning() {
 	try {
 		return ($cast(SQLWarning, getNextException()));
-	} catch ($ClassCastException&) {
-		$var($ClassCastException, ex, $catch());
+	} catch ($ClassCastException& ex) {
 		$throwNew($Error, "SQLWarning chain holds value that is not a SQLWarning"_s);
 	}
 	$shouldNotReachHere();
@@ -116,16 +107,10 @@ void SQLWarning::setNextWarning(SQLWarning* w) {
 SQLWarning::SQLWarning() {
 }
 
-SQLWarning::SQLWarning(const SQLWarning& e) {
+SQLWarning::SQLWarning(const SQLWarning& e) : $SQLException(e) {
 }
 
-SQLWarning SQLWarning::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SQLWarning::throwWrapper$() {
-	$pendingException(this);
+void SQLWarning::throw$() {
 	throw *this;
 }
 

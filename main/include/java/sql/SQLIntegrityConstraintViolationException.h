@@ -28,8 +28,10 @@ public:
 	void init$($String* reason, $String* SQLState, int32_t vendorCode, $Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x6F7C638E72373691;
 	SQLIntegrityConstraintViolationException(const SQLIntegrityConstraintViolationException& e);
-	SQLIntegrityConstraintViolationException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SQLIntegrityConstraintViolationException* operator ->() {
+		return (SQLIntegrityConstraintViolationException*)throwing$;
+	}
 };
 
 	} // sql

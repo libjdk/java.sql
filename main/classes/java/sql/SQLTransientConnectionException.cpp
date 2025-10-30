@@ -1,13 +1,5 @@
 #include <java/sql/SQLTransientConnectionException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLTransientException.h>
 #include <jcpp.h>
 
@@ -84,16 +76,10 @@ void SQLTransientConnectionException::init$($String* reason, $String* SQLState, 
 SQLTransientConnectionException::SQLTransientConnectionException() {
 }
 
-SQLTransientConnectionException::SQLTransientConnectionException(const SQLTransientConnectionException& e) {
+SQLTransientConnectionException::SQLTransientConnectionException(const SQLTransientConnectionException& e) : $SQLTransientException(e) {
 }
 
-SQLTransientConnectionException SQLTransientConnectionException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SQLTransientConnectionException::throwWrapper$() {
-	$pendingException(this);
+void SQLTransientConnectionException::throw$() {
 	throw *this;
 }
 

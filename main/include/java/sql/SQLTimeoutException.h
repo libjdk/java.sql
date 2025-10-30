@@ -28,8 +28,10 @@ public:
 	void init$($String* reason, $String* SQLState, int32_t vendorCode, $Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xC1BA5D7E8FBC7F3A;
 	SQLTimeoutException(const SQLTimeoutException& e);
-	SQLTimeoutException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SQLTimeoutException* operator ->() {
+		return (SQLTimeoutException*)throwing$;
+	}
 };
 
 	} // sql

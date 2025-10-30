@@ -1,13 +1,5 @@
 #include <java/sql/SQLDataException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLNonTransientException.h>
 #include <jcpp.h>
 
@@ -84,16 +76,10 @@ void SQLDataException::init$($String* reason, $String* SQLState, int32_t vendorC
 SQLDataException::SQLDataException() {
 }
 
-SQLDataException::SQLDataException(const SQLDataException& e) {
+SQLDataException::SQLDataException(const SQLDataException& e) : $SQLNonTransientException(e) {
 }
 
-SQLDataException SQLDataException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SQLDataException::throwWrapper$() {
-	$pendingException(this);
+void SQLDataException::throw$() {
 	throw *this;
 }
 

@@ -1,23 +1,6 @@
 #include <java/sql/Timestamp.h>
 
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/Date.h>
 #include <java/time/Instant.h>
 #include <java/time/LocalDateTime.h>
@@ -348,13 +331,11 @@ $LocalDateTime* Timestamp::toLocalDateTime() {
 
 Timestamp* Timestamp::from($Instant* instant) {
 	$init(Timestamp);
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var(Timestamp, stamp, $new(Timestamp, $nc(instant)->getEpochSecond() * Timestamp::MILLIS_PER_SECOND));
 		stamp->nanos = $nc(instant)->getNano();
 		return stamp;
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(ex));
 	}
 	$shouldNotReachHere();

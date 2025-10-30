@@ -1,12 +1,6 @@
 #include <javax/sql/CommonDataSource.h>
 
 #include <java/io/PrintWriter.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLFeatureNotSupportedException.h>
 #include <java/sql/ShardingKeyBuilder.h>
 #include <java/util/logging/Logger.h>

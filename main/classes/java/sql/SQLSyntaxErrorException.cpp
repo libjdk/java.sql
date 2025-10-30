@@ -1,13 +1,5 @@
 #include <java/sql/SQLSyntaxErrorException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLNonTransientException.h>
 #include <jcpp.h>
 
@@ -84,16 +76,10 @@ void SQLSyntaxErrorException::init$($String* reason, $String* SQLState, int32_t 
 SQLSyntaxErrorException::SQLSyntaxErrorException() {
 }
 
-SQLSyntaxErrorException::SQLSyntaxErrorException(const SQLSyntaxErrorException& e) {
+SQLSyntaxErrorException::SQLSyntaxErrorException(const SQLSyntaxErrorException& e) : $SQLNonTransientException(e) {
 }
 
-SQLSyntaxErrorException SQLSyntaxErrorException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SQLSyntaxErrorException::throwWrapper$() {
-	$pendingException(this);
+void SQLSyntaxErrorException::throw$() {
 	throw *this;
 }
 

@@ -32,8 +32,10 @@ public:
 	int32_t transferSize = 0;
 	static const int64_t serialVersionUID = (int64_t)0x59B5CDAE7F4E5851;
 	DataTruncation(const DataTruncation& e);
-	DataTruncation wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline DataTruncation* operator ->() {
+		return (DataTruncation*)throwing$;
+	}
 };
 
 	} // sql

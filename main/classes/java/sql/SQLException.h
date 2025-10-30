@@ -59,8 +59,10 @@ public:
 	static ::java::util::concurrent::atomic::AtomicReferenceFieldUpdater* nextUpdater;
 	static const int64_t serialVersionUID = (int64_t)0x1DA1E930DB3E75DC;
 	SQLException(const SQLException& e);
-	SQLException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SQLException* operator ->() {
+		return (SQLException*)throwing$;
+	}
 };
 
 	} // sql

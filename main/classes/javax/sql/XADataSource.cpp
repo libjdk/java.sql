@@ -1,11 +1,5 @@
 #include <javax/sql/XADataSource.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLFeatureNotSupportedException.h>
 #include <javax/sql/XAConnection.h>
 #include <javax/sql/XAConnectionBuilder.h>

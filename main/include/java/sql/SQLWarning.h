@@ -30,8 +30,10 @@ public:
 	virtual void setNextWarning(::java::sql::SQLWarning* w);
 	static const int64_t serialVersionUID = (int64_t)0x365D2D0AA3E484D8;
 	SQLWarning(const SQLWarning& e);
-	SQLWarning wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SQLWarning* operator ->() {
+		return (SQLWarning*)throwing$;
+	}
 };
 
 	} // sql

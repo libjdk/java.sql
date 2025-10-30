@@ -1,13 +1,5 @@
 #include <java/sql/SQLTransactionRollbackException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/sql/SQLTransientException.h>
 #include <jcpp.h>
 
@@ -84,16 +76,10 @@ void SQLTransactionRollbackException::init$($String* reason, $String* SQLState, 
 SQLTransactionRollbackException::SQLTransactionRollbackException() {
 }
 
-SQLTransactionRollbackException::SQLTransactionRollbackException(const SQLTransactionRollbackException& e) {
+SQLTransactionRollbackException::SQLTransactionRollbackException(const SQLTransactionRollbackException& e) : $SQLTransientException(e) {
 }
 
-SQLTransactionRollbackException SQLTransactionRollbackException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SQLTransactionRollbackException::throwWrapper$() {
-	$pendingException(this);
+void SQLTransactionRollbackException::throw$() {
 	throw *this;
 }
 

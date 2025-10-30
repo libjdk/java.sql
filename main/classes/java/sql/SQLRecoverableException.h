@@ -28,8 +28,10 @@ public:
 	void init$($String* reason, $String* SQLState, int32_t vendorCode, $Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xC67C2E6EF957E545;
 	SQLRecoverableException(const SQLRecoverableException& e);
-	SQLRecoverableException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SQLRecoverableException* operator ->() {
+		return (SQLRecoverableException*)throwing$;
+	}
 };
 
 	} // sql

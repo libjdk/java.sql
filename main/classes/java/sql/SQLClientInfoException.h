@@ -36,8 +36,10 @@ public:
 	::java::util::Map* failedProperties = nullptr;
 	static const int64_t serialVersionUID = (int64_t)0xC40DAED08DB37FF8;
 	SQLClientInfoException(const SQLClientInfoException& e);
-	SQLClientInfoException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SQLClientInfoException* operator ->() {
+		return (SQLClientInfoException*)throwing$;
+	}
 };
 
 	} // sql

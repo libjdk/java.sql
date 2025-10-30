@@ -1,14 +1,6 @@
 #include <java/sql/PseudoColumnUsage.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef NO_USAGE_RESTRICTIONS
@@ -56,13 +48,9 @@ $Object* allocate$PseudoColumnUsage($Class* clazz) {
 	return $of($alloc(PseudoColumnUsage));
 }
 
-
 PseudoColumnUsage* PseudoColumnUsage::SELECT_LIST_ONLY = nullptr;
-
 PseudoColumnUsage* PseudoColumnUsage::WHERE_CLAUSE_ONLY = nullptr;
-
 PseudoColumnUsage* PseudoColumnUsage::NO_USAGE_RESTRICTIONS = nullptr;
-
 PseudoColumnUsage* PseudoColumnUsage::USAGE_UNKNOWN = nullptr;
 $PseudoColumnUsageArray* PseudoColumnUsage::$VALUES = nullptr;
 

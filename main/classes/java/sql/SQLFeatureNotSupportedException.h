@@ -28,8 +28,10 @@ public:
 	void init$($String* reason, $String* SQLState, int32_t vendorCode, $Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xF1C119CD5ABED6ED;
 	SQLFeatureNotSupportedException(const SQLFeatureNotSupportedException& e);
-	SQLFeatureNotSupportedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SQLFeatureNotSupportedException* operator ->() {
+		return (SQLFeatureNotSupportedException*)throwing$;
+	}
 };
 
 	} // sql
