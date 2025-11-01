@@ -34,7 +34,6 @@ class $export SQLException : public ::java::lang::Exception, public ::java::lang
 	$class(SQLException, 0, ::java::lang::Exception, ::java::lang::Iterable)
 public:
 	SQLException();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

@@ -19,7 +19,6 @@ namespace javax {
 class $import DataSource : public ::javax::sql::CommonDataSource, public ::java::sql::Wrapper {
 	$interface(DataSource, $NO_CLASS_INIT, ::javax::sql::CommonDataSource, ::java::sql::Wrapper)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual ::java::sql::ConnectionBuilder* createConnectionBuilder();
 	virtual bool equals(Object$* arg0) override;

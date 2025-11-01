@@ -36,7 +36,6 @@ namespace java {
 class $export Statement : public ::java::sql::Wrapper, public ::java::lang::AutoCloseable {
 	$interface(Statement, $NO_CLASS_INIT, ::java::sql::Wrapper, ::java::lang::AutoCloseable)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void addBatch($String* sql) {}
 	virtual void cancel() {}
 	virtual void clearBatch() {}

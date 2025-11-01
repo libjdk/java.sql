@@ -55,7 +55,6 @@ namespace java {
 class $import Connection : public ::java::sql::Wrapper, public ::java::lang::AutoCloseable {
 	$interface(Connection, $NO_CLASS_INIT, ::java::sql::Wrapper, ::java::lang::AutoCloseable)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void abort(::java::util::concurrent::Executor* executor) {}
 	virtual void beginRequest();
 	virtual void clearWarnings() {}

@@ -100,7 +100,6 @@ class $export JDBCType : public ::java::lang::Enum, public ::java::sql::SQLType 
 	$class(JDBCType, 0, ::java::lang::Enum, ::java::sql::SQLType)
 public:
 	JDBCType();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::sql::JDBCType>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
